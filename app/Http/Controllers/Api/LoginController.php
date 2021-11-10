@@ -64,4 +64,16 @@ class LoginController extends BaseController
             return $this->sendError(__('app.system_error'), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function logout(Request $request)
+    {
+        try {
+            JWTAuth::invalidate($request->token);
+            return $this->sendSuccessResponse();
+        } catch (Exception $e) {
+            return $this->sendError(__('app.system_error'), Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (JWTException $exception) {
+            return $this->sendError(__('app.system_error'), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }
