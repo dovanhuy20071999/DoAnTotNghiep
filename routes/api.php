@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\DeadlineController;
+use App\Http\Controllers\Api\EssayController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/essay/create', [EssayController::class, 'createEssay']);
+Route::resource('/deadline', DeadlineController::class);
+Route::resource('/order', OrderController::class);
+Route::resource('/user', UserController::class);
