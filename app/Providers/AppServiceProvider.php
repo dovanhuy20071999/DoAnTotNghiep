@@ -18,6 +18,18 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\User\UserRepositoryInterface::class,
             \App\Repositories\User\UserRepositoryEloquent::class,
         );
+        $this->app->singleton(
+            \App\Repositories\Essay\EssayRepositoryInterface::class,
+            \App\Repositories\Essay\EssayRepositoryEloquent::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Deadline\DeadlineRepositoryInterface::class,
+            \App\Repositories\Deadline\DeadlineRepositoryEloquent::class,
+        );
+        $this->app->singleton(
+            \App\Repositories\Order\OrderRepositoryInterface::class,
+            \App\Repositories\Order\OrderRepositoryEloquent::class,
+        );
     }
 
     /**
